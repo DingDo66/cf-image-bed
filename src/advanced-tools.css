@@ -1,0 +1,123 @@
+.advanced-modal {
+  width: 650px;
+}
+.tool-note {
+  color: #7b8491;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 14px 0 20px;
+}
+.tool-list {
+  max-height: 45dvh;
+  overflow: auto;
+}
+.tool-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eef0f3;
+}
+.tool-row > img {
+  width: 54px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.tool-row > div {
+  flex: 1;
+  min-width: 0;
+}
+.tool-row strong {
+  display: block;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.tool-row small {
+  display: block;
+  color: #8b929d;
+  font-size: 11px;
+  margin-top: 5px;
+}
+.tool-row button {
+  flex-shrink: 0;
+}
+.token-create {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+.token-create input,
+.token-secret input {
+  min-width: 0;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfe4eb;
+  border-radius: 6px;
+}
+.token-secret {
+  background: #f6f7f9;
+  padding: 14px;
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+}
+.api-example {
+  margin-top: 22px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.api-example summary {
+  cursor: pointer;
+}
+.api-example pre {
+  overflow: auto;
+  padding: 12px;
+  background: #f6f7f9;
+  border-radius: 6px;
+}
+.trash-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.tool-confirm {
+  padding: 16px;
+  margin-top: 18px;
+  background: #fff7f6;
+  border: 1px solid #f0ddda;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.tool-confirm > div {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.upload-menu-wrap {
+  position: relative;
+}
+.upload-menu-wrap .dropdown {
+  right: 0;
+  top: calc(100% + 8px);
+  width: 180px;
+}
+@media (max-width: 540px) {
+  .advanced-modal {
+    padding: 20px;
+  }
+  .tool-row {
+    gap: 6px;
+  }
+  .tool-row > img {
+    width: 38px;
+    height: 38px;
+  }
+  .token-create {
+    flex-wrap: wrap;
+  }
+}

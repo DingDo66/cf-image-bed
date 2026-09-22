@@ -1,0 +1,7 @@
+# 只用于本地开发；npm run dev 会自动创建 .dev.vars。
+ADMIN_PASSWORD="local-image-bed-2026"
+# 将此占位值替换为随机的 32 字符以上字符串，或让 npm run dev 自动生成。
+SESSION_SECRET="replace-this-with-a-random-secret-at-least-32-characters"
+# 可选：生产环境推荐在 wrangler.deploy.json 的 vars 中设置 HTTPS 自定义域名。
+# PUBLIC_URL="https://images.example.com"
+

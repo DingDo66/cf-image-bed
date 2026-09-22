@@ -1,0 +1,175 @@
+.quick-copy {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  color: #48515d;
+  flex-shrink: 0;
+}
+.quick-copy button {
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  background: transparent;
+}
+.quick-copy-main,
+.quick-copy-toggle {
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+}
+.quick-copy-main {
+  width: 32px;
+}
+.quick-copy-toggle {
+  width: 20px;
+}
+.quick-copy button:hover {
+  background: #edf0f4;
+}
+.quick-copy button:focus-visible {
+  outline: 2px solid #8995a6;
+  outline-offset: 2px;
+}
+.quick-copy-card {
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  opacity: 0;
+  background: #fff;
+}
+.card-info {
+  padding-right: 66px;
+}
+.image-card:hover .quick-copy-card,
+.quick-copy-card:focus-within,
+.quick-copy-card.is-open {
+  opacity: 1;
+}
+.quick-copy-popover {
+  position: fixed;
+  z-index: 10000;
+  width: 176px;
+  padding: 6px;
+  background: #fff;
+  color: #303740;
+  border: 1px solid #e3e7ed;
+  border-radius: 9px;
+  box-shadow: 0 8px 28px #15233b26;
+}
+.quick-copy-popover small {
+  display: block;
+  padding: 5px 9px;
+  color: #8b929d;
+  font-size: 11px;
+}
+.quick-copy-popover button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 9px;
+  border-radius: 5px;
+  font-size: 13px;
+  text-align: left;
+}
+.quick-copy-viewer {
+  color: #e4e8ed;
+}
+.quick-copy-viewer .quick-copy-main {
+  width: 38px;
+  height: 42px;
+}
+.quick-copy-viewer .quick-copy-toggle {
+  height: 42px;
+}
+.quick-copy-viewer > button:hover {
+  background: #ffffff1a;
+}
+@media (hover: none), (max-width: 600px) {
+  .quick-copy-card {
+    opacity: 1;
+  }
+  .quick-copy-main,
+  .quick-copy-toggle {
+    height: 40px;
+  }
+  .quick-copy-toggle {
+    width: 24px;
+  }
+}
+.image-card .card-info {
+  padding-right: 70px;
+}
+.image-card .card-name {
+  max-width: 100%;
+}
+.image-list.has-selection .list-row,
+.image-list.has-selection .list-header {
+  grid-template-columns: 32px minmax(0, 1fr) 130px 150px 60px;
+}
+@media (max-width: 1100px) {
+  .image-list.has-selection .list-row,
+  .image-list.has-selection .list-header {
+    grid-template-columns: 28px minmax(0, 1fr) 75px 95px 60px;
+  }
+}
+@media (max-width: 600px) {
+  .image-list.has-selection .list-row,
+  .image-list.has-selection .list-header {
+    grid-template-columns: 26px minmax(0, 1fr) 55px 60px;
+  }
+}
+/* Reset native button padding: narrow arrow buttons otherwise shift the SVG. */
+.quick-copy > button {
+  position: relative;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.quick-copy > button > svg {display:block;flex-shrink:0;}
+.quick-copy > button[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: min(220px, calc(100vw - 32px));
+  padding: 9px 13px;
+  border: 1px solid #d5dbe3;
+  border-radius: 9px;
+  background: #f8fafc;
+  box-shadow: 0 4px 14px #0003;
+  color: #171b22;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.quick-copy:not(.is-open) > button:focus-visible::after {visibility:visible;opacity:1;}
+@media(hover:hover){.quick-copy:not(.is-open) > button:hover::after {visibility:visible;opacity:1;}}
+.quick-copy-card > button[data-tooltip]::after,
+.quick-copy-list > button[data-tooltip]::after {
+  top: calc(100% + 6px);
+  left: auto;
+  right: 0;
+  transform: none;
+  padding: 6px 11px;
+  border: 0;
+  border-radius: 5px;
+  background: #262b32;
+  box-shadow: 0 2px 4px #00000014;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+}
+.quick-copy-viewer > button:hover,
+.quick-copy-viewer > button:focus-visible {background:#202b3b;color:#fff;}

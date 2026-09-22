@@ -1,0 +1,43 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - name: Test the local Worker
+        shell: bash
+        env:
+          TEST_BASE_URL: http://127.0.0.1:8787
+        run: |
+          set -euo pipefail
+          image_bed_log="$RUNNER_TEMP/image-bed-dev.log"
+          setsid npm run dev > "$image_bed_log" 2>&1 &
+          image_bed_server_pid=$!
+          cleanup() {
+            image_bed_exit_status=$?
+            if [ "$image_bed_exit_status" -ne 0 ]; then
+              cat "$image_bed_log"
+            fi
+            kill -- "-$image_bed_server_pid" 2>/dev/null || true
+            wait "$image_bed_server_pid" 2>/dev/null || true
+            exit "$image_bed_exit_status"
+          }
+          trap cleanup EXIT
+          timeout 40 bash -c 'until curl --silent --fail --max-time 1 http://127.0.0.1:8787/api/session > /dev/null; do sleep 1; done'
+          npm test
+      - run: npm run deploy -- --dry-run
