@@ -32,7 +32,15 @@ Open http://localhost:8787. The first run creates a local `.dev.vars` file with 
 
 New installations start empty. With the local server running, `npm run demo:seed` adds optional sample images.
 
-## Deploy
+## Deploy from your browser (recommended)
+
+Fork → configure three GitHub Secrets → run **部署图床 / Deploy** on `main` → open your site from the run summary. No terminal or local Node.js installation required.
+
+**[Step-by-step GitHub deployment guide](docs/GITHUB_DEPLOY.en.md)**
+
+Private repository access is currently restricted. Existing local deployments are not automatically imported. Deployment runs manually; pushes only validate code.
+
+## Deploy from a local terminal
 
 Enable R2 in your Cloudflare account, then run:
 

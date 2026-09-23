@@ -1,0 +1,53 @@
+name: 部署图床 / Deploy
+run-name: 部署图床 · ${{ github.actor }}
+on:
+  workflow_dispatch:
+    inputs:
+      reset_password:
+        description: '重置管理员密码并退出旧登录 / Reset password and sessions（普通更新不用勾选）'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: image-bed-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - name: 检查配置 / Check configuration
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          IMAGE_BED_NAME: ${{ vars.IMAGE_BED_NAME }}
+        run: node --input-type=module -e "import { optionsFromEnv } from './scripts/deploy-ci.mjs'; optionsFromEnv(process.env); console.log('配置格式检查通过');"
+      - name: 安装依赖 / Install
+        run: npm ci
+      - name: 类型检查 / Typecheck
+        run: npm run typecheck
+      - name: 检查部署逻辑 / Test deployment
+        run: npm run test:deploy
+      - name: 构建界面 / Build
+        run: npm run build
+      - name: 创建资源并发布 / Provision and deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          IMAGE_BED_NAME: ${{ vars.IMAGE_BED_NAME }}
+          RESET_ADMIN_PASSWORD: ${{ inputs.reset_password }}
+        run: npm run deploy:ci
+      - name: 失败时的下一步 / Troubleshooting
+        if: failure()
+        run: |
+          echo '## 部署未完成 / Deployment failed' >> "$GITHUB_STEP_SUMMARY"
+          echo '展开红色步骤查看错误。首次使用请确认三个 Secrets、Token 权限与 R2 开通状态；10072 表示 Cron 额度不足。修复后重新运行，不要修改资源名称。请参阅仓库 docs/GITHUB_DEPLOY.md。' >> "$GITHUB_STEP_SUMMARY"

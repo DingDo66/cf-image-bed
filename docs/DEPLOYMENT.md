@@ -1,5 +1,7 @@
 # 部署与维护
 
+新用户推荐使用 [GitHub 网页部署指南](GITHUB_DEPLOY.md)，无需本地终端。下文主要介绍本地脚本及高级维护。
+
 ## 设计
 
 项目使用标准 Wrangler CLI。前端由 Vite 构建为 `dist/`，随 Worker 一次发布。所有请求先进入 Worker：处理 `/api/*`、`/i/*`、`/t/*`、`/p/*`，其余请求交给 Static Assets 提供 SPA 并附加安全响应头。配置方式依据 Cloudflare 的 [Static Assets 绑定说明](https://developers.cloudflare.com/workers/static-assets/binding/)。
@@ -104,7 +106,7 @@ D1 提供 [Time Travel](https://developers.cloudflare.com/d1/reference/time-trav
 
 ## 手动部署和 CI
 
-默认 GitHub Actions 只做本地验证，没有自动发布，也不需要 Cloudflare 密钥。
+GitHub 的 Validate 工作流在推送和 PR 时执行检查，不需要 Cloudflare 密钥；新增“部署图床 / Deploy”工作流由用户手动触发，需要配置三个 Secrets，见 [网页部署指南](GITHUB_DEPLOY.md)。
 
 如需要手动操作，在自己的终端中依次执行 `wrangler d1 create`、`wrangler r2 bucket create`，把结果填写到由模板复制得到的 `wrangler.deploy.json` 中（包括 `name`、`account_id`、D1 的真实 `database_id`、桶名）。初次发布要同时设置 `ADMIN_PASSWORD` 和随机 `SESSION_SECRET`。建议使用自动脚本处理，避免遗漏。
 

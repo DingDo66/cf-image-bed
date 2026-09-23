@@ -10,7 +10,7 @@
 <p align="center">简体中文 · <a href="README.en.md">English</a></p>
 <p align="center">
   <a href="#先在本地运行">本地运行</a> ·
-  <a href="#部署到自己的-cloudflare">部署指南</a> ·
+  <a href="docs/GITHUB_DEPLOY.md">网页部署</a> ·
   <a href="docs/MEDIA_API.md">上传 API</a> ·
   <a href="CHANGELOG.md">更新记录</a> ·
   <a href="CONTRIBUTING.md">参与开发</a>
@@ -50,6 +50,16 @@
 - 自动清理依赖成功启用 Cloudflare Cron；账户定时任务额度不足时需要先解决配额问题。
 - 浏览器上传 HEIC / HEIF 会生成兼容预览并保留原文件；URL / API 的服务端转换依赖 Images binding，目前仍有解码兼容问题，详见 [验证记录](docs/VALIDATION.md)。
 
+## 网页部署（推荐新人使用）
+
+**无需终端：Fork 仓库 → 填写三个 Secrets → Actions 点击部署 → 打开图床。**
+
+准备 Cloudflare API Token、账户 ID 和管理员密码，在 GitHub 的 **部署图床 / Deploy** 工作流中选择 `main` 并运行。数据库、存储桶、迁移和登录密钥由脚本处理，成功后摘要中会显示网站地址。
+
+👉 **[按照网页部署指南开始](docs/GITHUB_DEPLOY.md)** · [English guide](docs/GITHUB_DEPLOY.en.md)
+
+当前仓库保持私有，只有获邀用户可访问；仓库所有者可以直接使用。日常更新也是手动点击部署，普通推送不会自动发布。已有本地部署实例请先阅读指南中的“已有实例”。
+
 ## 先在本地运行
 
 需要 Node.js 22.12+ 和 npm。下载或克隆本项目，在项目目录执行：
@@ -71,7 +81,7 @@ npm run demo:seed
 
 演示脚本只允许写入本机服务，示例数据不会被生产部署带上。示例下载自 Unsplash，见 [图片来源](docs/demo-images.md)。
 
-## 部署到自己的 Cloudflare
+## 从本地部署到 Cloudflare
 
 准备一个 Cloudflare 账户，并在控制台启用 R2 订阅。Cloudflare 的 R2 入门流程包括开通订阅，具体要求以账户页面为准。[R2 开通说明](https://developers.cloudflare.com/r2/get-started/)
 
