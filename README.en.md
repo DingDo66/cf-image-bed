@@ -1,4 +1,6 @@
-# Minimal Image Bed
+# PixNest
+
+**Your images, your space.**
 
 **A minimal, self-hosted image library on Cloudflare Workers, R2 and D1.**
 
@@ -22,8 +24,8 @@ Upload, share and organize your images without a VPS, Docker or a persistent Nod
 Requires Node.js 22.12+ and npm.
 
 ```sh
-git clone https://github.com/DingDo66/cf-image-bed.git
-cd cf-image-bed
+git clone https://github.com/DingDo66/PixNest.git
+cd PixNest
 npm ci
 npm run dev
 ```
@@ -38,7 +40,7 @@ Fork → configure three GitHub Secrets → run **部署图床 / Deploy** on `ma
 
 **[Step-by-step GitHub deployment guide](docs/GITHUB_DEPLOY.en.md)**
 
-Private repository access is currently restricted. Existing local deployments are not automatically imported. Deployment runs manually; pushes only validate code.
+The repository is public and can be forked into your own account. Existing local deployments are not automatically imported. Deployment runs manually; pushes only validate code.
 
 ## Deploy from a local terminal
 

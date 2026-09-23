@@ -2,7 +2,7 @@
 
 No local Node.js, Git or terminal required. Use this flow for a new image library or to update one created by this workflow.
 
-1. **Fork the repository** into your GitHub account. Owners can use the existing repository. While this repository is private, access and forking depend on invitations and repository policy.
+1. **Fork the repository** into your GitHub account. Owners can use the existing repository. This repository is public and can be forked into your own account.
 2. **Prepare Cloudflare:** activate R2, complete Workers onboarding and choose a `workers.dev` subdomain. Copy your 32-character Account ID.
 3. **Create a custom [API token](https://dash.cloudflare.com/profile/api-tokens)** restricted to your deployment account, with account permissions: Workers Scripts **Edit**, D1 **Edit**, Workers R2 Storage **Edit**, Account Settings **Read**.
 4. In your GitHub repository, open **Settings → Secrets and variables → Actions → Secrets → New repository secret**. Add:

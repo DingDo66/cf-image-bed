@@ -67,8 +67,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       ?.setAttribute(
         "content",
         t(
-          "上传、管理与分享你的图片。一个属于自己的极简图床。",
-          "Upload, organize, and share your images. Your own minimal image host.",
+          "PixNest — Your images, your space. 一个部署在 Cloudflare 上的极简自托管图床。",
+          "PixNest — Your images, your space. A minimal self-hosted image host on Cloudflare.",
         ),
       );
   }, [language, t]);

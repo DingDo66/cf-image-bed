@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "极简、自部署的 Cloudflare Workers 图床",
+  "description": "PixNest — Your images, your space. 一个部署在 Cloudflare 上的极简自托管图床。",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "dev:web": "vite --host 127.0.0.1",

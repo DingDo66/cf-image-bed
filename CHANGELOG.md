@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 品牌更名为 PixNest，标语为 “Your images, your space.”；应用、仓库介绍与部署文档同步更新。
+
 - 新增 GitHub 网页部署：三个 Secrets、手动发布、资源复用、显式密码重置、部署地址摘要和中英文新人指南。
 
 - 卡片、列表和大图预览新增直链 / Markdown / HTML 快速复制菜单，记住上次选择。

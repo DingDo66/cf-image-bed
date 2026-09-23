@@ -79,11 +79,10 @@ function LanguageToggle() {
 }
 
 function Logo() {
-  const { t } = useI18n();
   return (
     <span className="brand">
       <img src="/favicon.svg" alt="" aria-hidden="true" />
-      <span>{t("极简图床", "Minimal Image Bed")}</span>
+      <span>PixNest</span>
     </span>
   );
 }
@@ -128,12 +127,12 @@ function Login({
           <img src="/favicon.svg" width={32} height={32} alt="" />
         </div>
         <h1>
-          {t("你的图片，井然有序。", "Your images, beautifully organized.")}
+          Your images, your space.
         </h1>
         <p className="login-intro">
           {t(
-            "登录你的图床，留存与分享每一个瞬间。",
-            "Sign in to save and share every moment.",
+            "一个部署在 Cloudflare 上的极简自托管图床。",
+            "A minimal self-hosted image host on Cloudflare.",
           )}
         </p>
         <form className="login-form" onSubmit={submit}>
@@ -793,7 +792,7 @@ export default function App() {
     localStorage.setItem("gallery-view", view);
   }, [view]);
   useEffect(() => {
-    document.title = `${t("极简图床", "Minimal Image Bed")} · ${activeAlbum?.name || (page === "albums" ? t("相册", "Albums") : t("图片库", "Library"))}`;
+    document.title = `PixNest · ${activeAlbum?.name || (page === "albums" ? t("相册", "Albums") : t("图片库", "Library"))}`;
   }, [page, activeAlbum, t]);
   useEffect(() => {
     if (!profile && !albumMenu) return;
@@ -1139,7 +1138,7 @@ export default function App() {
         <div className="nav-inner">
           <button
             className="brand-button"
-            aria-label={t("极简图床首页", "Minimal Image Bed home")}
+            aria-label={t("PixNest 首页", "PixNest home")}
             onClick={() => navigate("library")}
           >
             <Logo />

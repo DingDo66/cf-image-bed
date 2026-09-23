@@ -1,9 +1,10 @@
-<p align="center"><img src="public/favicon.svg" width="64" height="64" alt="极简图床图标"></p>
+<p align="center"><img src="public/favicon.svg" width="64" height="64" alt="PixNest 图标"></p>
 
-<h1 align="center">极简图床</h1>
-<p align="center">上传、分享、整理。部署在你自己的 Cloudflare 上。</p>
+<h1 align="center">PixNest</h1>
+<p align="center"><strong>Your images, your space.</strong></p>
+<p align="center">一个部署在 Cloudflare 上的极简自托管图床。</p>
 <p align="center">
-  <a href="https://github.com/DingDo66/cf-image-bed/actions/workflows/ci.yml"><img src="https://github.com/DingDo66/cf-image-bed/actions/workflows/ci.yml/badge.svg" alt="Validate"></a>
+  <a href="https://github.com/DingDo66/PixNest/actions/workflows/ci.yml"><img src="https://github.com/DingDo66/PixNest/actions/workflows/ci.yml/badge.svg" alt="Validate"></a>
   <img src="https://img.shields.io/badge/Cloudflare-Workers%20%2B%20R2%20%2B%20D1-f38020" alt="Cloudflare Workers + R2 + D1">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a>
 </p>
@@ -16,7 +17,7 @@
   <a href="CONTRIBUTING.md">参与开发</a>
 </p>
 
-一个可以部署到自己 Cloudflare 账户的极简图床。图片库采用留白、浅灰边框与四列图片卡片的设计，支持手机和桌面。图片由你管理，链接可以公开分享。
+PixNest 是一个部署在 Cloudflare 上的极简自托管图床。图片库采用留白、浅灰边框与四列图片卡片的设计，支持手机和桌面。图片由你管理，链接可以公开分享。
 
 当前处于发布前验证阶段。功能与验证范围见 [验证记录](docs/VALIDATION.md)，版本变更见 [更新记录](CHANGELOG.md)。
 
@@ -58,7 +59,7 @@
 
 👉 **[按照网页部署指南开始](docs/GITHUB_DEPLOY.md)** · [English guide](docs/GITHUB_DEPLOY.en.md)
 
-当前仓库保持私有，只有获邀用户可访问；仓库所有者可以直接使用。日常更新也是手动点击部署，普通推送不会自动发布。已有本地部署实例请先阅读指南中的“已有实例”。
+项目已公开，可 Fork 到自己的 GitHub 账户后部署。日常更新也是手动点击部署，普通推送不会自动发布。已有本地部署实例请先阅读指南中的“已有实例”。
 
 ## 先在本地运行
 

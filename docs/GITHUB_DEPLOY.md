@@ -1,4 +1,4 @@
-# 用 GitHub 网页部署极简图床
+# 用 GitHub 网页部署PixNest
 
 不需要安装 Node.js、Git，也不需要打开终端。准备好 GitHub 和 Cloudflare 账户后，按下面步骤操作。
 
@@ -10,7 +10,7 @@
 
 打开项目首页，点击右上角 **Fork → Create fork**，进入自己账号下的仓库。后面所有 GitHub 操作都在自己的仓库进行。
 
-仓库当前仍为私有，只有获邀用户可访问，Fork 能否使用取决于仓库策略；仓库所有者直接使用现有仓库即可。未来公开后，其他人才能按公开 Fork 流程使用。Fork 不会复制原作者的 Secrets，需要填写自己的配置。
+仓库已公开，任何 GitHub 用户都可以 Fork；仓库所有者直接使用现有仓库即可。Fork 不会复制原作者的 Secrets，需要填写自己的配置。
 
 ## 2. 准备 Cloudflare
 
